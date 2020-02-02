@@ -1,0 +1,5 @@
+/* components/food_current/food_current.wxss */
+
+.more{
+    margin-right: 10px;
+}

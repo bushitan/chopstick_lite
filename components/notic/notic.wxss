@@ -1,0 +1,9 @@
+/* components/notic/notic.wxss */
+
+.notic-image{
+    padding: 30rpx;
+}
+
+.space{
+    padding: 4px 0;
+}

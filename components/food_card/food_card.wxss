@@ -1,0 +1,15 @@
+/* components/food_card/food_card.wxss */
+/* @import '/static/css/main.wxss';
+@import '/static/css/icon.wxss'; */
+
+.food_des{
+    position: relative;
+    padding: 10px;
+    /* display: flex; */
+    /* padding-right: 10rpx; */
+    /* height: 140rpx; */
+    background-color: var(--white);
+    /* justify-content: flex-end; */
+    align-items: center;
+
+}

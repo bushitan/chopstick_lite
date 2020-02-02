@@ -1,0 +1,5 @@
+/* pages/food/food.wxss */
+
+page{
+    background-color: var(--ghostWhite);
+}

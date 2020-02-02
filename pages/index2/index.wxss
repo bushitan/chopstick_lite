@@ -1,0 +1,45 @@
+
+
+
+
+.store{
+    position: relative;
+    background-color: #ffffff;
+}
+.store_title{
+    display: flex;
+    justify-content: space-between;
+    padding:  15px 15px 15px 100px;
+}
+.store .name{
+    font-weight: bolder;
+}
+
+.store_logo_box{    
+    position: absolute;
+    top: -14px;
+    left: 15px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 5px;
+}
+.store_logo{
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+
+}
+
+.employee{
+}
+.employee .employee-item {
+    height: 140rpx;
+}
+.employee .content{
+    padding-left: 10px;
+}
+.employee .arrow {
+    padding-right: 65rpx !important;
+}

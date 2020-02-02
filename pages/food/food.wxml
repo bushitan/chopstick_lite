@@ -1,0 +1,7 @@
+<!--pages/food/food.wxml-->
+
+<view class="cu-card case  {{isCard?'no-card':''}} ">
+    <view class="cu-item shadow " wx:for="{{foodList}}" wx:key="index">           
+        <food-card food="{{item}}"></food-card>    
+    </view>
+</view>

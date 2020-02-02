@@ -1,0 +1,24 @@
+{
+    "pages": [
+        "pages/index2/index",
+        "pages/index/index",
+        "pages/food/food",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "usingComponents": {
+        "food-current": "/components/food_current/food_current",
+        "food-list": "/components/food_list/food_list",
+        "food-card": "/components/food_card/food_card",
+        "header": "/components/header/header",
+        "notic": "/components/notic/notic",
+        "cu-custom": "/colorui/components/cu-custom"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

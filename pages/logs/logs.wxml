@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">时间轴</view>
+</cu-custom>
+
+<view class="cu-timeline">
+  <view class="cu-time">06-17</view>
+  <view class="cu-item">
+    <view class="content">
+      <text>01:30</text> 【喵星】 MX-12138 已揽收，准备发往银河系
+    </view>
+  </view>
+</view>

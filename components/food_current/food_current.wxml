@@ -1,0 +1,13 @@
+<!--components/food_current/food_current.wxml-->
+
+<view class="cu-card case  {{isCard?'no-card':''}} ">
+    <view class="cu-item shadow ">
+        <view class="cu-bar bg-white solid-bottom arrow">
+            <view class="action">
+                <text class="cuIcon-likefill text-red  margin-right-xs"></text>{{text}}
+            </view>
+            <view class="more" catchtap="toFood">更多</view>
+        </view>
+        <slot></slot>  
+    </view>
+</view>

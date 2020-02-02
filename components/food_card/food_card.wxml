@@ -1,0 +1,26 @@
+<!--components/food_card/food_card.wxml-->
+
+<view class="image" >
+    <image src="{{food.image_url}}" mode="widthFix"></image>
+    <view class="cu-tag bg-red">{{food.mark}}</view>
+    <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{food.des}}</text>
+    </view>
+    </view>
+    <view class="cu-list menu-avatar">
+    <view class="food_des">
+        <!-- <view class=""> -->
+        <view class="  text-grey text-lg text-bold">{{food.name}}</view>
+
+        <view class="pg-space-10"></view>
+        <view class="text-gray text-sm flex justify-between">
+            {{food.summary}}
+            <view class="text-gray text-sm">
+                <text class="cuIcon-safe text-yellow margin-lr-xs"></text> 安全
+                <text class="cuIcon-evaluate_fill text-green margin-lr-xs"></text> 纯天然
+                <text class="cuIcon-squarecheckfill text-blue margin-lr-xs"></text> 已消毒
+            </view>
+        </view>
+        <!-- </view> -->
+    </view>
+</view>

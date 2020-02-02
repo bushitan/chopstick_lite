@@ -1,0 +1,9 @@
+<!--components/food_list/food_list.wxml-->
+<text>components/food_list/food_list.wxml</text>
+
+
+    <view class="cu-card case  {{isCard?'no-card':''}} ">
+        <view class="cu-item shadow ">           
+            <food-card list="foodList"></food-card>    
+        </view>
+    </view>

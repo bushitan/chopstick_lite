@@ -1,0 +1,37 @@
+<!--components/header/header.wxml-->
+<!-- <cu-custom 
+    bgColor="bg-gradual-pink" 
+    isBack="{{false}}"
+    isCustom="{{true}}"><view slot="content">操作条</view></cu-custom> -->
+
+<view class="header  ">
+    <view style="height:{{CustomBar - 34}}px"></view>
+    <view class="title">
+        <image class="title_img" src="/images/icon/title.png" mode="widthFix"></image>
+    </view>
+    <view class="name text-white">      
+        <image class="vegetable"  src="/images/icon/vegetable.png"></image>  
+        <view>{{name}}   <text class="cuIcon-title text-white "></text> {{slogan}}</view>
+        <image class="meat" src="/images/icon/meat.png" ></image>
+    </view>
+    <!-- <view class="pg-flex-start">
+        <view class="header_left">
+            <image class="header_logo" src="{{logo}}" ></image>
+        </view>   
+        <view class="">
+            <text class="header_name">{{name}}食材安心卡</text>
+        </view>
+    </view>
+    <view class="margin-top">    
+        <text class="header_des ">食材健康实时监控</text>
+    </view>
+    <view >    
+        <text class="header_date ">[2020-2-2 19:56:89]</text>
+    </view> -->
+    
+    <view class="des ">
+        <image class="des_img" src="/images/icon/des.png" mode="widthFix"></image>
+    </view>
+
+
+</view>
