@@ -1,95 +1,121 @@
 
 
-
-
-
-<view class="header">
-    <image class="header_img" src="../../images/bg/bg.jpg" mode="center"></image>
-</view>
-<view class="store">
-    <view class="store_title">
-        <view class="name">{{store.name}}</view>
-        <view>{{store.date}}</view>
-    </view>
-    <view class="cu-list menu   ">
-        <view class="cu-item arrow">
-            <view class="content">
-                <image src="../../images/icon/address.png"></image>
-                <text class=" text-grey text-sm">{{store.address}}</text>
-            </view>
-            <view class="action">
-                <text class="text-grey text-sm">4个门店</text>
-            </view>
-        </view>
-    </view>    
-    <view class="store_logo_box">
-        <image class="store_logo" src="{{store.logo}}" ></image>
-    </view>   
-</view>
-
-<view class="cu-card case no-card {{isCard?'no-card':''}} food">
-  <view class="cu-item shadow">
-    <view class="image">
-      <image src="../../images/bg/wa.jpg" mode="widthFix"></image>
-      <view class="cu-tag bg-red">爆款</view>
-      <view class="cu-bar bg-shadeBottom">
-        <text class="text-cut">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text>
-      </view>
-    </view>
-    <view class="cu-list menu-avatar">
-      <view class="food_des">
-        <!-- <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view> -->
-        <!-- <view class=""> -->
-          <view class="text-grey">辣子蛙</view>
-          <view class="text-gray text-sm flex justify-between">
-            原味
-            <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 安全
-              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 卫生
-              <text class="cuIcon-messagefill margin-lr-xs"></text> 消毒
-            </view>
-          </view>
-        <!-- </view> -->
-      </view>
+<!-- <scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-blue cur text-bold':''}}" wx:for="{{tabbar}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+      {{item.name}}
     </view>
   </view>
-</view>
+</scroll-view> -->
 
-<view class="employee">
-    <view class="cu-bar bg-white solid-bottom margin-top">
-        <view class="action">
-            <text class="cuIcon-group_fill text-red  margin-right-xs"></text>制作人员健康实时监控
+<view style="background-color:{{store.bgColor || '#ef5830'}}">
+    <header logo="{{store.logo}}" name="{{store.name}}" slogan="{{store.slogan}}"></header>
+
+
+    <view wx-if="{{TabCur==0}}">
+        <view class="" style="height:10px;"></view>
+
+        <!-- <view class="" style="height:10px;"></view> -->
+        <notic text="{{store.notice}}" img="{{store.noticeUrl}}"></notic>
+
+        <!-- <view wx:if="{{food}}">
+            <food-current bindmore="toMore">        
+                <food-card food="{{food}}"></food-card>  
+            </food-current>
         </view>
-    </view>
-    <view class="cu-list menu ">
-        <navigator url="" class="cu-item bg-white arrow "  wx:for="{{storeList}}" catchtap="toStore" data-store_uuid="{{item.storeUUID}}">
-            <!-- <view class="cu-avatar round lg" style="background-image:url({{item.storeLogo}});"></view> -->
-            <image class="cu-avatar round lg" src="{{item.storeLogo}}"></image>
-            <view class="content">
-                <view class="text-grey">{{item.storeName}}</view>
-                <view class="text-gray text-sm flex">
-                <text class="text-cut">
-                <text class="cuIcon-vipcard text-blue  margin-right-xs"></text>{{item.storeDes}}
-                </text>
+        <view wx:else>        
+            <food-current bindmore="toMore" >        
+            </food-current>
+        </view> -->
+
+
+        <view class="employee cu-card">
+            <view class="cu-item">
+                <view class="cu-bar bg-white solid-bottom ">
+                    <view class="action">
+                        <text class="cuIcon-group_fill text-green  margin-right-xs"></text>制作人员健康实时监控
+                    </view>
+                </view>
+                <view class="cu-list menu no-card ">
+                    <navigator url="" class="cu-item bg-white employee-item  arrow"  
+                        wx:for="{{employeeList}}" wx:key="index" catchtap="toStore" data-store_uuid="{{item.storeUUID}}">
+                        <image class="cu-avatar bg-white round lg" 
+                            src="{{item.avatar || '/images/icon/logo.png'  }}" mode="aspectFit"></image>
+                        <view class="content">
+                            <view class="text-grey">{{item.name}}</view>
+                            <view class="text-gray text-sm flex">
+                                <text class="text-cut">
+                                <text class="cuIcon-vipcard text-blue  margin-right-xs"></text>{{item.post}}</text>
+                            </view>
+                            <view class="text-sm">测量时间:{{item.temperatureCurrent.date}}</view>
+                        </view>
+                        <view class="action pg-flex-column">
+                            <view class="text-grey text-xs ">当前体温</view>
+                            <view class="cu-tag round bg-green page-font-white sm text-center">{{item.temperatureCurrent.value}}°</view>
+                        </view>
+                    </navigator>
                 </view>
             </view>
-            <view class="action">
-                <view class="text-grey text-xs">当前体温</view>
-                <view class="cu-tag round bg-green page-font-white sm">{{item.myScore}}°</view>
+        </view>
+    </view>
+
+    <!-- <view wx:elif="{{TabCur==1}}">
+        <view class="store pg_space_10" >      
+            <view class="cu-list menu   ">
+                <view class="cu-item ">
+                    <view class="content">
+                        <text class="cuIcon-timefill text-yellow  margin-right-xs"></text>
+                        <text class=" text-grey text-sm">营业时间</text>
+                    </view>
+                    <view class="action">
+                        <text class="text-grey text-sm">{{store.startTime}}至{{store.endTime}}</text>
+                    </view>
+                </view>
+                <view class="cu-item arrow">
+                    <view class="content">
+                        <text class="cuIcon-locationfill text-yellow  margin-right-xs"></text>
+                        <text class=" text-grey text-sm">门店地址</text>
+                    </view>
+                    <view class="action">
+                        <text class="text-grey text-sm">{{store.count}}个门店</text>
+                    </view>
+                </view>
+            </view>    
+        </view>
+        <view class="cu-timeline pg_space_10">
+            <view class="cu-time">公告栏</view>
+            <view class="cu-item" wx:for="{{noticList}}">
+                <view class="content">
+                    <view class="cu-capsule radius">
+                    <view class="cu-tag bg-cyan">2020-2-1</view>
+                    <view class="cu-tag line-cyan">10:00</view>
+                </view>
+                <view class="margin-top">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view>
+                </view>
             </view>
-        </navigator>
+        </view>
+    </view> -->
+
+    <view wx:else>
+
+        <food-card list="foodList"></food-card>
+    </view>
+
+    <view class=" padding-xs flex align-center" catchtap="toSelf">
+        <view class="flex-sub text-center">
+            <view class=" text-df padding">
+                <text class="text-white text-lg" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">我是店主，我要制作</text>
+            </view>           
+        </view>
     </view>
     <view class=" padding-xs flex align-center">
         <view class="flex-sub text-center">
             <view class=" text-df padding">
-                <text class="text-grey">Copyright © 2019 索骏科技提供技术支持</text>
+                <text class="text-white">Copyright © 2019 索骏科技提供技术支持</text>
             </view>           
         </view>
     </view>
 </view>
-
-
-
 <!-- 
 餐饮门店公告栏
 1.安心卡：时间、门店、员工信息、体温
@@ -100,5 +126,25 @@
 
 
 
+<!-- 
 
-
+    <view class="store" >
+        <view class="store_title">
+            <view class="name">{{store.name}}</view>
+            <view>{{store.date}}</view>
+        </view>
+        <view class="cu-list menu   ">
+            <view class="cu-item arrow">
+                <view class="content">
+                    <image src="../../images/icon/address.png"></image>
+                    <text class=" text-grey text-sm">{{store.address}}</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm">4个门店</text>
+                </view>
+            </view>
+        </view>    
+        <view class="store_logo_box">
+            <image class="store_logo" src="{{store.logo}}" ></image>
+        </view>   
+    </view> -->

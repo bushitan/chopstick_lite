@@ -1,0 +1,23 @@
+/* pages/self/self.wxss */
+page{
+     background-color: var(--ghostWhite);
+}
+
+.add_none{
+    height: 80vh;
+}
+
+.temperature_box{
+    padding: 7px;
+}
+.temperature_input{
+    width: 60px;
+    height: 14pt;
+    font-size: 9pt;
+    text-align: right;
+}
+.temperature_placeholder{
+    /* padding: 5px; */
+    text-align: right;
+    font-size: 9pt;
+}

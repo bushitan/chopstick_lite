@@ -8,7 +8,7 @@
             </view>
         </view>
         <view class="notic-image">
-            <image src="/images/bg/bg.jpg" mode="widthFix"></image>
+            <image src="{{img}}" mode="widthFix"></image>
         </view>
     </view>
 </view>

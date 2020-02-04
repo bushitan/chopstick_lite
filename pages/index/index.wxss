@@ -1,9 +1,6 @@
 
 
-.header,.header_img{
-    width: 750rpx;
-    height: 150rpx;
-}
+
 
 .store{
     position: relative;
@@ -20,7 +17,7 @@
 
 .store_logo_box{    
     position: absolute;
-    top: -18px;
+    top: -14px;
     left: 15px;
     width: 72px;
     height: 72px;
@@ -35,20 +32,9 @@
 
 }
 
-
-.food_des{
-    position: relative;
-    padding: 10px;
-    /* display: flex; */
-    /* padding-right: 10rpx; */
-    /* height: 140rpx; */
-    background-color: var(--white);
-    /* justify-content: flex-end; */
-    align-items: center;
-
+.employee{
 }
-
-.employee .cu-item {
+.employee .employee-item {
     height: 140rpx;
 }
 .employee .content{

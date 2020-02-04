@@ -20,7 +20,26 @@ App({
                 }
             }
         })
+
+        // this.test()
     },
+
+    getPrePage(){
+        var pre = getCurrentPages()[getCurrentPages().length - 2]
+        return pre
+    },
+
+    test(){
+        // debugger
+        wx.cloud.callFunction({
+            name: 'store',
+            data: {
+                a: 12,
+                b: 19
+            }
+        }).then(console.log)
+    },
+
     globalData: {
         userInfo: null
     }

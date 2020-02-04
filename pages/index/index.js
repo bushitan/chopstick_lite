@@ -1,54 +1,84 @@
 //index.js
-//获取应用实例
 const app = getApp()
 
 Page({
     data: {
+
+        storeID:"",
         store:{
             logo:"http://img.12xiong.top/coffee_image/upload/QuOY66fZ.jpg",
             name:"琉璃净",
-            date:"8:30 -- 15:30",
-            address:"	青秀区桃村路2-1号都市绿洲1层10号商铺"
+            startTime:"8:30",
+            endTime:"15:30",
+            count:5,
+            bg_color:"#ef5830",
+            notic:"公告：这里是店铺的通知公告",
+
         },
 
-        storeList: [
-            {
-                storeUUID: "2",  //广告所在店铺
-                storeName: "魏婧迪", //店铺名称
-                storeLogo: "../../images/logo/1.jpg", //店铺logo
-                storeDes: "切配工",  //店铺活动描述
-                storeMinScore: 6,  //店铺起始兑换点数
-                storeMaxScore: 10,  //店铺最高兑换点数
-                myScore: 36.2,    //此店铺已经集的点数
-            },
-            {
-                storeUUID: "3",  //广告所在店铺
-                storeName: "李闻雕", //店铺名称
-                storeLogo: "../../images/logo/2.jpg", //店铺logo
-                storeDes: "掌勺大厨",  //店铺活动描述
-                storeMinScore: 6,  //店铺起始兑换点数
-                storeMaxScore: 10,  //店铺最高兑换点数
-                myScore: 36.8,    //此店铺已经集的点数
-            },
-            {
-                storeUUID: "4",  //广告所在店铺
-                storeName: "韦丰", //店铺名称
-                storeLogo: "../../images/logo/3.jpg", //店铺logo
-                storeDes: "外卖打包员",  //店铺活动描述
-                storeMinScore: 6,  //店铺起始兑换点数
-                storeMaxScore: 10,  //店铺最高兑换点数
-                myScore: 36.9,    //此店铺已经集的点数
-            },
+        TabCur: 0,
+        tabbar: [
+            {  name: "实时监控",},
+            // {  name: "店铺公告",},
+            {  name: "更多菜品",}
         ],
 
-    },
-    
-    onLoad: function () {
-    
+        employeeList: [],
+        food:null,
+
+        noticList:[1,2,3,4],
     },
 
-    onShareAppMessage(){
+    tabSelect(e) {
+        this.setData({
+            TabCur: e.currentTarget.dataset.id,
+            scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+        })
         
+    },
+    async onLoad (options) {
+        var storeID = ""
+
+        if (options.hasOwnProperty("scene")){
+            storeID = decodeURIComponent(options.scene)
+        } else {
+            storeID = options.storeID || "d9ea35c25e39a3530a59ebd5267d4424"
+        }
+        
+        this.setData({
+            storeID: storeID
+        })
+        this.onInit()
+    },
+
+    async onInit() {
+        var data = await app.db.getStoreInfo({
+            storeID: this.data.storeID
+        })
+
+        this.setData({
+            store: data.store,
+            employeeList: data.employeeList,
+        })
+    },
+    
+    /*************路由************/
+    toMore(){
+        wx.navigateTo({
+            url: '/pages/food/food?id=' + this.data.store.id + "&name=" + this.data.store.name + "&slogan=" + this.data.store.slogan,
+        })
+    },
+
+    toSelf(){
+        wx.redirectTo({
+            url: '/pages/self/self'
+        })
+    },
+    onShareAppMessage(){
+        return {
+            title: this.store.name + "●" + this.store.slogan ,
+            path: '/page/index2/index?storeID=' + this.data.store._id
+        }
     },
   
 })

@@ -1,0 +1,96 @@
+<!--pages/editor/editor.wxml-->
+
+<!-- XX店外卖食品安全可追踪；装餐安全可追踪；送餐安全可追踪。请放心食用！
+
+外卖预定：（微信号） -->
+
+<form bindsubmit="save">
+
+	<view class="cu-form-group margin-top">
+		<view class="title">1、名字</view>
+		<input placeholder="请输入店铺名字" name="name" value="{{store.name}}" ></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">2、标语</view>
+		<input placeholder="请输入店铺的标语，展示在名字后"  name="slogan" value="{{store.slogan}}"></input>
+	</view>
+    <view class="cu-bar bg-white  cu-form-group ">
+        <view class="action">
+           3、LOGO
+        </view>
+        <view class="action">
+            {{logoList.length}}/{{imageMax}}
+        </view>
+    </view>
+    <view></view>
+    <view class="cu-form-group">
+        <view class="grid col-5 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{logoList}}" wx:key="index" bindtap="ViewLogo" data-url="{{logoList[index]}}">
+                <image src='{{logoList[index]}}' mode='aspectFit'></image>
+                <view class="cu-tag bg-red" catchtap="DelLogo" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseLogo" wx:if="{{logoList.length<imageMax}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+
+
+	<view class="cu-form-group margin-top">
+		<view class="title">4、公告</view>
+		<input placeholder="请输入公告"  name="notice" value="{{store.notice}}"></input>
+	</view>
+    <view class="cu-bar bg-white  cu-form-group ">
+        <view class="action">
+            5、公告图片
+        </view>
+        <view class="action">
+            {{imgList.length}}/{{imageMax}}
+        </view>
+    </view>
+    <view></view>
+    <view class="cu-form-group">
+        <view class="grid col-5 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFit'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<imageMax}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title">6、联系方式</view>
+		<input placeholder="请输入十六进制或选择以下颜色"  name="tel" value="{{store.tel}}"></input>
+	</view>
+    
+	<view class="cu-form-group margin-top">
+		<view class="title">7、主题颜色</view>
+		<input placeholder="请输入十六进制或选择以下颜色"  name="bgColor" value="{{bgColor}}"></input>
+	</view>
+    <radio-group class="grid col-3 padding-sm bg-white text-center" bindchange="colorChange">
+        <view class="padding-sm " wx:for="{{ColorList}}" wx:key="index">
+            <view class="bg-{{item.name}} padding radius text-center shadow-blur">
+                <view class="text-lg">{{item.title}}</view>
+                <view class="margin-top-sm text-Abc">{{item.name}}</view>
+            </view>
+            <radio 
+                checked="{{store.bgColor == item.color ? true :false}}"
+                name="{{item.color}}" 
+                value="{{item.color}}" 
+                class="radio"></radio>
+        </view>
+    </radio-group>
+    
+    <view class="pg-flex-center  margin-top">
+        <button class="cu-btn round bg-red  text-white lg" form-type="submit">保存</button>
+    </view>
+
+    <view class="pg-space-60"></view>
+</form>

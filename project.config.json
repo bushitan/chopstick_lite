@@ -23,7 +23,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.1",
-	"appid": "wxb5f4203d6bc1d799",
+	"appid": "wx73297ed6fd049076",
 	"projectname": "%E5%B0%8F%E7%AD%B7%E5%AD%90%E9%A3%9F%E6%9D%90%E5%AE%89%E5%BF%83%E5%8D%A1",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -31,6 +31,7 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -67,6 +68,27 @@
 					"name": "food",
 					"pathName": "pages/food/food",
 					"query": "id=1&name=大三元&slogan=豆乳好食材",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺编辑",
+					"pathName": "pages/editor/editor",
+					"query": "id=1&name=大三元&slogan=豆乳好食材",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的店铺",
+					"pathName": "pages/self/self",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工编辑",
+					"pathName": "pages/employee_editor/employee_editor",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -8,16 +8,29 @@
     display: flex;
     align-items: center;
 }
+.pg-flex-center{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pg-flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .pg-space-10{
     /* height: 10px; */
     margin-top:10px;
 }
+.pg-space-60{    height:60px;}
 page {
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
 	--red: #e54d42;
+    --lightred:#ef5830;
 	--orange: #f37b1d;
 	/* --yellow: #fbbd08; */
 	/* --yellow: #ed8f1e; */
@@ -77,9 +90,12 @@ page {
 	--grayShadow: rgba(114, 130, 138, 0.2);
 	--blackShadow: rgba(26, 26, 26, 0.2);
 
-	/* background-color: var(--ghostWhite); */
+	background-color: var(--ghostWhite);
 	/* background-color: var(--darkblue); */
-	background-color: var(--yellow);
+	/* background-color: var(--yellow); */
+	/* background-color: #ef5830; */
+
+    
 	font-size: 28rpx;
 	color: var(--black);
 	font-family: Helvetica Neue, Helvetica, sans-serif;

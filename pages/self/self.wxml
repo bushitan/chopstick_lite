@@ -1,0 +1,142 @@
+<!--pages/self/self.wxml-->
+
+<view wx:if="{{store._id}}"> 
+    <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class="action">
+            <text class="cuIcon-title text-orange "></text> 门店信息列表
+        </view>
+        <view class="action">
+            <text class="cu-btn bg-blue shadow" catchtap="toStoreEditor">编辑</text>
+        </view>
+    </view>
+    <view class="cu-list menu sm-border card-menu margin-top">
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">名字：{{store.name}}</text>
+            </view>       
+            <view class="action">
+                <image src="{{store.logo}}" style="width:32px;height:32px;" mode="aspectFit"></image>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">标语：{{store.slogan}}</text>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">公告：{{store.notice}}</text>
+            </view>            
+            <view class="action">
+                <image src="{{store.noticeUrl}}" style="width:32px;height:32px;" mode="aspectFit"></image>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">联系方式：{{store.tel}}</text>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">主题颜色：</text>
+            </view>
+            <view class="action">
+                <view class="cu-tag round text-white light" 
+                    style="background-color:{{store.bgColor}};color:{{store.bgColor}}">颜色</view>
+            </view>
+        </view>        
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">二维码</text>
+            </view>
+            <view class="action">
+                <text class="cu-btn bg-green shadow" catchtap="getCard">获取安心卡</text>
+                <text style="margin:0 3px">  </text>
+                <text class="cu-btn bg-green shadow" catchtap="getQR">获取二维码</text>
+            </view>
+        </view>
+    </view>
+    <!-- <view class="pg-flex-center margin-top">
+        <button class="cu-btn round bg-red  text-white lg" catchtap="toStoreEditor">编辑门店信息</button>
+    </view> -->
+    
+    <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class="action">
+            <text class="cuIcon-title text-orange "></text> 员工温度上报
+        </view>
+        <view class="action">
+            <text class="cu-btn bg-blue shadow" catchtap="addEmployeer" wx:if="{{employeeList.length < store.limitNum}}" >添加员工</text>
+        </view>
+    </view>
+
+    <form  bindsubmit="saveTemp">
+        <view class=" cu-card">
+            <view class="cu-list menu no-card ">
+                <view url="" class="cu-item bg-white employee-item  arrow"  
+                    style=" height: 140rpx;"
+                    wx:for="{{employeeList}}" 
+                    wx:key="index" 
+                    catchtap="editorEmployee" data-employee_id="{{item._id}}">
+                    <image class="cu-avatar round lg bg-white" 
+                        src="{{item.avatar || '/images/icon/logo.png'}}" mode="aspectFit"></image>
+                    <view class="content">
+                        <view class="text-grey">{{item.name}}</view>
+                        <view class="text-gray text-sm flex">
+                        <text class="text-cut">
+                        <text class="cuIcon-vipcard text-blue  margin-right-xs"></text>{{item.post}}
+                        </text>
+                        </view>
+                    </view>
+                    <view class="action pg-flex-column" catchtap="aa">
+                        <view class="text-grey  text-center">测量时间:{{item.temperatureCurrent.date}}</view>
+                        <view class="cu-tag round bg-green page-font-white  temperature_box">
+                            <input class="temperature_input"
+                                placeholder="请输入温度" 
+                                placeholder-class="text-white temperature_placeholder"
+                                type="digit"   
+                                name="{{item._id}}" 
+                                value="{{item.temperatureCurrent.value}}">
+                            </input>°
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        
+        <!-- <view class="cu-list menu sm-border card-menu margin-top">
+            <view class="cu-item " wx:for="{{employeeList}}" >
+                <view class="content">
+                    <image class="{{item.avatar}}" src="{{item.avatar}}"></image>
+                    <text class="text-grey">{{item.name}}({{item.post}})</text>                
+                </view>
+                <view class="action">
+                温度（点击数字可修改）<input placeholder="请输入温度" type="digit"   name="notice" value="{{item.temperature}}"></input>
+                </view>
+                <view class="action">
+                    <text style="margin:0 5px">  </text>
+                    <text class=" text-red " catchtap="deleteEmployee">删除</text> 
+                </view>
+            </view>
+        </view> -->
+        
+        <view class="pg-flex-center margin-top">
+            <button class="cu-btn round bg-red  text-white lg" form-type="submit">保存，批量修改</button>
+        </view>
+        <view class="  flex align-center" catchtap="toSelf">
+            <view class="flex-sub text-center">
+                <view class=" text-df ">
+                    <text class="text-red text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">目前可添加{{store.limitNum}}名员工，疫情严重，资源有限，请按需申请</text>
+                </view>           
+            </view>
+        </view>
+       
+        <view class="pg-flex-center  padding margin-top" >
+            <button size="mini" class=" cu-btn bg-grey  text-white  sm" open-type="contact" style="font-size: 24rpx !important; ">门店安心卡客服（申请入口）</button>
+        </view>
+    </form>
+</view>
+<view class="pg-flex-center  add_none" wx:else>
+    <button class="cu-btn round bg-red  text-white lg" catchtap="toStoreEditor">新增我的门店</button>
+</view>
+
+<view class="pg-space-60"></view>

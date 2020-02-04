@@ -1,15 +1,17 @@
 {
     "pages": [
-        "pages/index2/index",
+        "pages/self/self",
         "pages/index/index",
+        "pages/editor/editor",
+        "pages/employee_editor/employee_editor",
         "pages/food/food",
         "pages/logs/logs"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#1d2a6d",
+        "navigationBarTitleText": "门店安心卡",
+        "navigationBarTextStyle": "white"
     },
     "usingComponents": {
         "food-current": "/components/food_current/food_current",

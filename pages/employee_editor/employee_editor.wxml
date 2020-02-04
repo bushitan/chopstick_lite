@@ -1,0 +1,46 @@
+<!--pages/editor/editor.wxml-->
+
+
+<form bindsubmit="save">
+
+	<view class="cu-form-group margin-top">
+		<view class="title">员工名字</view>
+		<input placeholder="请输入店铺名字" name="name" value="{{employee.name}}" ></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">负责职务</view>
+		<input placeholder="请输入店铺的标语，展示在名字后"  name="post" value="{{employee.post}}"></input>
+	</view>
+    <view class="cu-bar bg-white  cu-form-group ">
+        <view class="action">
+            上传头像
+        </view>
+        <view class="action">
+            {{imgList.length}}/{{imageMax}}
+        </view>
+    </view>
+    <view></view>
+    <view class="cu-form-group">
+        <view class="grid col-3 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFit'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<imageMax}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+
+    <view class="pg-flex-center  margin-top">
+        <button class="cu-btn round bg-blue  text-white lg" form-type="submit">添加</button>
+    </view>
+
+    <view class="pg-flex-center  margin-top">
+        <button class="cu-btn round bg-red  text-white lg " catchtap="deleteEmployee">删除</button>
+    </view>
+
+    <view class="pg-space-60"></view>
+</form>

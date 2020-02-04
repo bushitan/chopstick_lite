@@ -8,6 +8,10 @@ Component({
             type: String,
             value: ''
         },
+        img: { // 属性名
+            type: String,
+            value: ''
+        },
     },
     options: {
         styleIsolation: 'apply-shared'
