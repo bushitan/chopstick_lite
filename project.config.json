@@ -90,6 +90,13 @@
 					"pathName": "pages/employee_editor/employee_editor",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "storeID=d9ea35c25e39a3530a59ebd5267d4424",
+					"scene": null
 				}
 			]
 		}
