@@ -1,14 +1,23 @@
 <!--components/notic/notic.wxml-->
 
-<view class="cu-card">
-    <view class="cu-item">
-        <view class="cu-bar bg-white solid-bottom  space">
-            <view class="action">
-                <text class="cuIcon-notificationfill text-red margin-right-xs"></text>{{text}}
+<!-- <view class="self_name margin-top">{{name}}{{name}}{{name}}{{name}}</view>-->
+<view class="store_box ">      
+    <view class="cu-card ">
+        <!-- <view class="bg-white" style="height:42rpx;"></view>   -->
+        <view class="cu-item">
+            <view class="text-bold text-black self_name2" style="height:74rpx" >{{name}}</view>
+            <view class="cu-bar bg-white ">
+                <view class="action">
+                    <text class="cuIcon-notificationfill text-red margin-right-xs"></text>{{text}}
+                </view>
+            </view>
+            <view class="notic-image" wx:if="{{img}}" catchtap="preview">
+                <image src="{{img}}" mode="widthFix" style="width: 100%;"></image>
             </view>
         </view>
-        <view class="notic-image">
-            <image src="{{img}}" mode="widthFix"></image>
-        </view>
     </view>
+    <view></view>
+    <view class="logo_box">
+        <image class="logo_image" src="{{logo}}"  mode="aspectFit"></image>
+    </view> 
 </view>

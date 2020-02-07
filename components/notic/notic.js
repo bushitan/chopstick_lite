@@ -4,6 +4,14 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        logo: { // 属性名
+            type: String,
+            value: ''
+        },
+        name: { // 属性名
+            type: String,
+            value: ''
+        },
         text: { // 属性名
             type: String,
             value: ''
@@ -28,5 +36,10 @@ Component({
      */
     methods: {
 
+        preview(){
+            wx.previewImage({
+                urls: [this.data.img],
+            })
+        },
     }
 })

@@ -9,11 +9,12 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#1d2a6d",
+        "navigationBarBackgroundColor": "#4770e2",
         "navigationBarTitleText": "门店安心卡",
         "navigationBarTextStyle": "white"
     },
     "usingComponents": {
+        "poster": "../../components/poster/index",
         "food-current": "/components/food_current/food_current",
         "food-list": "/components/food_list/food_list",
         "food-card": "/components/food_card/food_card",

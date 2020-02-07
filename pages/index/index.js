@@ -6,8 +6,8 @@ Page({
 
         storeID:"",
         store:{
-            logo:"http://img.12xiong.top/coffee_image/upload/QuOY66fZ.jpg",
-            name:"琉璃净",
+            logo:"",
+            name:"",
             startTime:"8:30",
             endTime:"15:30",
             count:5,
@@ -76,8 +76,8 @@ Page({
     },
     onShareAppMessage(){
         return {
-            title: this.store.name + "●" + this.store.slogan ,
-            path: '/page/index2/index?storeID=' + this.data.store._id
+            title: this.data.store.name  ,
+            path: '/pages/index/index?storeID=' + this.data.store._id
         }
     },
   

@@ -5,23 +5,30 @@
     isCustom="{{true}}"><view slot="content">操作条</view></cu-custom> -->
 
 <view class="header  ">
-    <view style="height:{{CustomBar - 34}}px"></view>
-    <view class="title">
+    <view style="height:{{CustomBar}}px"></view>
+    <!-- <view class="title">
         <image class="title_img" src="/images/icon/title.png" mode="widthFix"></image>
-    </view>
+    </view> -->
     <!-- <view class="des ">
         <image class="des_img" src="/images/icon/des.png" mode="widthFix"></image>
     </view> -->
 
-    <view class="des text-white" style="font-size:11pt">
+    <view class="pg-flex-center" >
+        <text class="flex flex-center cu-btn round line shadow title text-white text-bold">门店安心卡</text>        
+    </view>
+
+
+    <view class="des text-white " style="font-size:11pt">
         健康状况可监测 用餐安全可追踪
     </view>
-    <view class="name text-white ">      
+    <!-- <view class="name text-white ">      
         <image class="vegetable"  src="/images/icon/vegetable.png"></image>  
-        <!-- <view>{{name}}   <text class="cuIcon-title text-white "></text> {{slogan}}</view> -->
         <view>{{name}}   </view>
         <image class="meat" src="/images/icon/meat.png" ></image>
-    </view>
+    </view> -->
+
+
+
     <!-- <view class="pg-flex-start">
         <view class="header_left">
             <image class="header_logo" src="{{logo}}" ></image>

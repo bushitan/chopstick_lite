@@ -12,12 +12,17 @@ page{
 }
 .temperature_input{
     width: 60px;
-    height: 14pt;
-    font-size: 9pt;
+    height: 20pt;
+    font-size: 15pt;
     text-align: right;
 }
 .temperature_placeholder{
     /* padding: 5px; */
     text-align: right;
     font-size: 9pt;
+    color: #ffffff !important;
+}
+
+.notice_show{
+    padding:5px 15px;
 }

@@ -43,3 +43,9 @@
 .employee .arrow {
     padding-right: 65rpx !important;
 }
+
+.temperature-num{
+    margin-top:3px;
+    padding: 3px 15px;
+    font-size: 11pt;
+}

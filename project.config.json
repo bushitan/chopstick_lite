@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -18,8 +19,7 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"enhance": true
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.1",
@@ -92,10 +92,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
-					"query": "storeID=d9ea35c25e39a3530a59ebd5267d4424",
+					"query": "storeID=d68532785e3c00780b3c20ec4eb45582",
 					"scene": null
 				}
 			]

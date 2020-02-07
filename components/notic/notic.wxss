@@ -7,3 +7,46 @@
 .space{
     padding: 4px 0;
 }
+
+.store_box{
+    position: relative;
+    /* margin-top:20px; */
+}
+
+.cu-item{    
+    z-index: 999;
+}
+
+.logo_box{    
+    position: absolute;
+    /* top: -rpx; */
+    left: 45rpx;
+    top:-12rpx;
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 10rpx;
+}
+.logo_image{
+    width: 124rpx;
+    height: 124rpx;
+    border-radius: 50%;
+}
+
+.self_name{
+    
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.self_name2{
+    margin-left: 174rpx; 
+    padding: 5px 0 50px 0 ;
+    font-size: 13pt;
+    z-index: 999999;
+}

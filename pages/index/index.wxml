@@ -8,15 +8,13 @@
   </view>
 </scroll-view> -->
 
-<view style="background-color:{{store.bgColor || '#ef5830'}}">
+<view style="background-color:{{store.bgColor || '#efefef'}} ; min-height:100vh">
     <header logo="{{store.logo}}" name="{{store.name}}" slogan="{{store.slogan}}"></header>
 
 
     <view wx-if="{{TabCur==0}}">
-        <view class="" style="height:10px;"></view>
-
-        <!-- <view class="" style="height:10px;"></view> -->
-        <notic text="{{store.notice}}" img="{{store.noticeUrl}}"></notic>
+        <view class="" style="height:15px;"></view>
+        <notic  logo="{{store.logo}}" name="{{store.name}}" text="{{store.notice}}" img="{{store.noticeUrl}}"></notic>
 
         <!-- <view wx:if="{{food}}">
             <food-current bindmore="toMore">        
@@ -33,25 +31,31 @@
             <view class="cu-item">
                 <view class="cu-bar bg-white solid-bottom ">
                     <view class="action">
-                        <text class="cuIcon-group_fill text-green  margin-right-xs"></text>制作人员健康实时监控
+                        <text class="cuIcon-group_fill text-green  margin-right-xs"></text>
+                        <text class="text-black text-bold">制作人员健康实时监控</text>
+                        
                     </view>
+                    <view class="action">
+                        门店共{{employeeList.length}}人
+                    </view>
+
                 </view>
                 <view class="cu-list menu no-card ">
-                    <navigator url="" class="cu-item bg-white employee-item  arrow"  
+                    <navigator url="" class="cu-item bg-white employee-item"  
                         wx:for="{{employeeList}}" wx:key="index" catchtap="toStore" data-store_uuid="{{item.storeUUID}}">
                         <image class="cu-avatar bg-white round lg" 
                             src="{{item.avatar || '/images/icon/logo.png'  }}" mode="aspectFit"></image>
                         <view class="content">
-                            <view class="text-grey">{{item.name}}</view>
+                            <view class="text-black text-bold">{{item.name}}</view>
                             <view class="text-gray text-sm flex">
                                 <text class="text-cut">
-                                <text class="cuIcon-vipcard text-blue  margin-right-xs"></text>{{item.post}}</text>
+                                <text class="cuIcon-vipcard text-grey  margin-right-xs"></text>{{item.post}}</text>
                             </view>
-                            <view class="text-sm">测量时间:{{item.temperatureCurrent.date}}</view>
+                            <view class="text-gray text-sm">测量时间:{{item.temperatureCurrent.date}}</view>
                         </view>
                         <view class="action pg-flex-column">
-                            <view class="text-grey text-xs ">当前体温</view>
-                            <view class="cu-tag round bg-green page-font-white sm text-center">{{item.temperatureCurrent.value}}°</view>
+                            <view class="text-grey text-xs text-center">当前体温</view>
+                            <view class=" round bg-green text-white  text-center temperature-num"  >{{item.temperatureCurrent.value}}°</view>
                         </view>
                     </navigator>
                 </view>
@@ -101,13 +105,32 @@
         <food-card list="foodList"></food-card>
     </view>
 
-    <view class=" padding-xs flex align-center" catchtap="toSelf">
+    <!-- <view class=" padding-xs flex align-center" catchtap="toSelf">
         <view class="flex-sub text-center">
             <view class=" text-df padding">
-                <text class="text-white text-lg" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">我是店主，我要制作</text>
+                <text class="text-white text-lg" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">我是店主，抗击疫情从我做起</text>
+                <view>
+                   
+                      
+                </view>
+            </view>           
+        </view>
+    </view> -->
+
+    <view class="margin-top"  catchtap="toSelf">
+        <button class="cu-btn bg-white text-grey block bg-blue ">
+        <image src="/images/cover/template_logo.jpg" style="width:23px;height:23px;"></image>
+        制作门店安心卡</button>      
+    <view class="  flex align-center" catchtap="toSelf">
+        <view class="flex-sub text-center">
+            <view class=" text-df ">
+                <text class="text-white text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">我是店主，抗击疫情从我做起</text>
             </view>           
         </view>
     </view>
+
+    </view>
+   
     <view class=" padding-xs flex align-center">
         <view class="flex-sub text-center">
             <view class=" text-df padding">

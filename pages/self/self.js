@@ -1,5 +1,8 @@
 // pages/self/self.js
 const app = getApp()
+import Poster from '../../components/poster/poster';
+const QRCup = require("../../utils/qr_cup.js")
+
 Page({
 
     /**
@@ -107,10 +110,32 @@ Page({
 
     /****获取二维码*****/
     // 获取合成后的卡片
-    getCard() { 
-        wx.redirectTo({
-            url: '/pages/index/index?storeID=' + this.data.store._id ,
+
+
+    async getCard() { 
+        var qrCup = new QRCup()
+        await qrCup.start(this.data.store)
+        var data = qrCup.getConfigData()
+        console.log(data)
+        wx.showToast({
+            title: '生成中',
         })
+        this.setData({ posterConfig: data }, () => {
+            Poster.create(true);    // 入参：true为抹掉重新生成
+        });
+    },
+    //合成成功
+    onPosterSuccess(e) {
+        const { detail } = e;
+        console.log(e)
+        wx.previewImage({
+            current: detail,
+            urls: [detail]
+        })
+    },
+    //合成失败
+    onPosterFail(e) {
+        console.log("合成失败",e)
     },
 
     // 获取二维码
@@ -123,6 +148,11 @@ Page({
     },
 
     /**********路由***********/
+    toStoreView(){
+        wx.redirectTo({
+            url: '/pages/index/index?storeID=' + this.data.store._id,
+        })
+    },
     toStoreEditor(){
         wx.navigateTo({
             url: '/pages/editor/editor',
