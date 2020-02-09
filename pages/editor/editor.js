@@ -7,10 +7,11 @@ Page({
      */
     data: {
         imgList: [],
-        imageMax:1,
+        imageMax:6,
 
 
         logoList: [],
+        logoMax: 1,
 
         store:{
             // bg_color: '#e54d42'
@@ -21,7 +22,7 @@ Page({
             {
                 title: '嫣红',
                 name: 'red',
-                color: '#e54d42'
+                color: '#e54d42' 
             },
             {
                 title: '桔橙',
@@ -101,7 +102,7 @@ Page({
             && store.noticeUrl != undefined
             && store.noticeUrl != null )
             this.setData({
-                imgList: [store.noticeUrl ]
+                imgList: store.noticeUrlList
             })
 
         if (store.logo != ""
@@ -139,28 +140,28 @@ Page({
                 formData.logo = ""
             }
         }
-        // 上传公共图片
-        if (this.data.imgList[0] != this.data.store.noticeUrl) {
-            // todo 验证图片是否为新上传的
-            const filePath = this.data.imgList[0]
 
-            if (filePath){
+        var noticeUrlList = []
+        for (var i = 0; i < this.data.imgList.length; i++) {
+            var filePath = this.data.imgList[i]
+            // var isLocal = /^http:\/\/tmp\//.test(filePath) // 检查是否含有本地图片，有则上传，没有按顺序添加到数组
+            var isLocal = /^cloud:\/\//.test(filePath) // 检查是否含有本地图片，有则上传，没有按顺序添加到数组
+            if (isLocal) {
+                noticeUrlList.push(filePath)
+            } else{
                 var cloudName = "notice/" + userID + "_" + new Date().getTime()
-                console.log(cloudName)
-                // 上传图片
-                const cloudPath = cloudName + filePath.match(/\.[^.]+?$/)[0]
-                formData.noticeUrl = await app.db.uploadImage({
+                var cloudPath = cloudName + filePath.match(/\.[^.]+?$/)[0]
+                var noticeUrl = await app.db.uploadImage({
                     filePath: filePath,
                     cloudPath: cloudPath,
                 })
-            } else{
-                formData.noticeUrl = ""
-            }            
+                noticeUrlList.push(noticeUrl)
+            }
         }
-
-
-        // debugger    
+        formData.noticeUrlList = noticeUrlList
+        formData.addressList = this.data.store.addressList
         formData.bgColor = this.data.bgColor || "#e54d42"
+
         var r = await app.db.editorSelfStore(formData)
         wx.showModal({
             title: r.msg,
@@ -263,6 +264,17 @@ Page({
             }
         });
     },
+
+
+
+    /****** 路由 ******/
+    toAddress(){
+        wx.navigateTo({
+            url: '/pages/address/address',
+        })
+    },
+
+
     /**
      * 用户点击右上角分享
      */

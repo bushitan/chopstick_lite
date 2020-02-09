@@ -8,7 +8,7 @@
             <text class="cuIcon-title text-blue"></text> 门店信息列表
         </view>
         <view class="action">
-            <text class="cu-btn bg-grey shadow " catchtap="toStoreView" style="margin-right:5px;">查看</text>
+            <text class="cu-btn bg-grey shadow " catchtap="toStoreView" style="margin-right:5px;">预览</text>
             <text class="cu-btn bg-blue shadow" catchtap="toStoreEditor">编辑</text>
         </view>
     </view>
@@ -42,10 +42,21 @@
         </view> 
         <view class="cu-item ">
             <view class="content">
+                <text class="text-black text-bold">门店数量：</text>
+            </view>
+            <view class="action">
+                    <!-- <view class="cu-tag round text-white light" 
+                style="background-color:{{store.bgColor}};color:{{store.bgColor}}">颜色</view> -->
+                {{store.addressList.length || 0}}个
+
+            </view>
+        </view>  
+        <view class="cu-item ">
+            <view class="content">
                 <text class="text-black text-bold">公告:</text>
             </view>            
             <view class="action">
-                <image src="{{store.noticeUrl}}" style="width:32px;height:32px;" mode="aspectFit"></image>
+                <image src="{{store.noticeUrlList[0]}}" style="width:32px;height:32px;" mode="aspectFit"></image>
             </view>
         </view>
         <view class=" notice_show bg-white">            
@@ -53,23 +64,6 @@
                 <view class="text-grey" >{{store.notice}}</view>
             </view> 
         </view>     
-        <view class="cu-item" style="border-top: 1rpx solid #eee;">
-            <view class="content">
-                <text class="text-black text-bold">二维码:</text>
-            </view>
-            <view class="action">
-                <text class="cu-btn bg-red shadow" catchtap="getCard">获取安心卡</text>
-                <text style="margin:0 3px">  </text>
-                <text class="cu-btn bg-red shadow" catchtap="getQR">二维码</text>
-            </view>
-        </view>
-        <view class="  flex align-center" catchtap="toSelf">
-            <view class="flex-sub text-center">
-                <view class=" text-df ">
-                    <text class="text-red text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">安心卡按A6尺寸打印，订在外卖包装（二维码用于独立设计）</text>
-                </view>            
-            </view>
-        </view>
     </view>
     <!-- <view class="pg-flex-center margin-top">
         <button class="cu-btn round bg-red  text-white lg" catchtap="toStoreEditor">编辑门店信息</button>
@@ -150,9 +144,37 @@
             </view>
         </view>
     </form>
+
+    <view class="qr-menu solid-top">
+    
+        <!-- <view class="cu-item" style="border-top: 1rpx solid #eee;">
+            <view class="content">
+                <text class="text-black text-bold">二维码:</text>
+            </view>
+            <view class="action">
+                <text class="cu-btn bg-red shadow" catchtap="getCard">获取安心卡</text>
+                <text style="margin:0 3px">  </text>
+                <text class="cu-btn bg-red shadow" catchtap="getQR">二维码</text>
+            </view>
+        </view> -->
+
+        <view class="qr-btn  pg-flex-center align-center">
+                <text class="cu-btn bg-red shadow" catchtap="getCard">获取安心卡</text>
+                <!-- <text class="cu-btn bg-blue shadow" catchtap="getQR">获取二维码</text> -->
+        </view>
+        <view class="  flex align-center" catchtap="toSelf">
+            <view class="flex-sub text-center">
+                <view class=" text-df ">
+                    <text class="text-red text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">安心卡按A6尺寸打印，订在外卖包装</text>
+                </view>            
+            </view>
+        </view>
+    </view>
 </view>
 <view class="pg-flex-center  add_none" wx:else>
     <button class="cu-btn round bg-red  text-white lg" catchtap="toStoreEditor">新增我的门店</button>
 </view>
 
+<!-- <view style="height:70px"></view> -->
+<view class="pg-space-60"></view>
 <view class="pg-space-60"></view>

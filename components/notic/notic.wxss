@@ -46,7 +46,7 @@
 
 .self_name2{
     margin-left: 174rpx; 
-    padding: 5px 0 50px 0 ;
+    padding: 5px 0 52px 0 ;
     font-size: 13pt;
     z-index: 999999;
 }

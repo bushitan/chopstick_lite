@@ -11,9 +11,15 @@
                     <text class="cuIcon-notificationfill text-red margin-right-xs"></text>{{text}}
                 </view>
             </view>
-            <view class="notic-image" wx:if="{{img}}" catchtap="preview">
+            <!-- <view class="notic-image" wx:if="{{img}}" catchtap="preview">
                 <image src="{{img}}" mode="widthFix" style="width: 100%;"></image>
+            </view> -->
+            <view class="notic-image" >
+                <view wx:for="{{imgList}}" wx:key="index" catchtap="preview" data-url="{{item}}">
+                    <image src="{{item}}" mode="widthFix" style="width: 100%;display: block;"></image>
+                </view>
             </view>
+            
         </view>
     </view>
     <view></view>

@@ -1,5 +1,5 @@
 
-var dbFather = require('db_base.js')
+var dbFather = require('db_record.js')
 class dbStore extends dbFather{
     constructor() {
         super()

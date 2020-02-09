@@ -12,20 +12,15 @@
     <header logo="{{store.logo}}" name="{{store.name}}" slogan="{{store.slogan}}"></header>
 
 
-    <view wx-if="{{TabCur==0}}">
+    <view >
         <view class="" style="height:15px;"></view>
-        <notic  logo="{{store.logo}}" name="{{store.name}}" text="{{store.notice}}" img="{{store.noticeUrl}}"></notic>
 
-        <!-- <view wx:if="{{food}}">
-            <food-current bindmore="toMore">        
-                <food-card food="{{food}}"></food-card>  
-            </food-current>
+        <notic  logo="{{store.logo}}" name="{{store.name}}" text="{{store.notice}}" img="{{store.noticeUrl}}" imgList="{{store.noticeUrlList}}"></notic>
+
+        <view wx:if="{{store.addressList.length > 0}}">
+            <wm addressList="{{store.addressList}}" longitude="{{longitude}}" latitude="{{latitude}}"
+             bindclickLocation="clickSelfLocation"></wm>
         </view>
-        <view wx:else>        
-            <food-current bindmore="toMore" >        
-            </food-current>
-        </view> -->
-
 
         <view class="employee cu-card">
             <view class="cu-item">
@@ -100,10 +95,6 @@
         </view>
     </view> -->
 
-    <view wx:else>
-
-        <food-card list="foodList"></food-card>
-    </view>
 
     <!-- <view class=" padding-xs flex align-center" catchtap="toSelf">
         <view class="flex-sub text-center">
@@ -119,12 +110,12 @@
 
     <view class="margin-top"  catchtap="toSelf">
         <button class="cu-btn bg-white text-grey block bg-blue ">
-        <image src="/images/cover/template_logo.jpg" style="width:23px;height:23px;"></image>
-        制作门店安心卡</button>      
+        免费制作<image src="/images/cover/template_logo.jpg" style="width:23px;height:23px;"></image>
+        门店安心卡</button>      
     <view class="  flex align-center" catchtap="toSelf">
         <view class="flex-sub text-center">
             <view class=" text-df ">
-                <text class="text-white text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">我是店主，抗击疫情从我做起</text>
+                <text class="text-white text-sm" style="line-height:30px;  border-bottom: 1px solid;padding: 5px;">抗击疫情从我做起</text>
             </view>           
         </view>
     </view>

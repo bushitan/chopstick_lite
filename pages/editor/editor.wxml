@@ -19,7 +19,7 @@
            2、LOGO（将印在小程序码上）
         </view>
         <view class="action">
-            {{logoList.length}}/{{imageMax}}
+            {{logoList.length}}/{{logoMax}}
         </view>
     </view>
     <view></view>
@@ -31,7 +31,7 @@
                     <text class="cuIcon-close"></text>
                 </view>
             </view>
-            <view class="solids" bindtap="ChooseLogo" wx:if="{{logoList.length<imageMax}}">
+            <view class="solids" bindtap="ChooseLogo" wx:if="{{logoList.length<logoMax}}">
                 <text class="cuIcon-cameraadd"></text>
             </view>
         </view>
@@ -69,6 +69,14 @@
         </view>
     </view>
 
+	<view class="cu-form-group">
+		<view class="title">7、外卖门店地址选择</view>
+        <picker disabled="{{true}}" catchtap="toAddress">
+            <view class="picker">
+                {{store.addressList.length}}个门店
+            </view>
+        </picker>
+	</view>
     
 	<view class="cu-form-group margin-top">
 		<view class="title">6、主题颜色</view>

@@ -16,17 +16,12 @@ Page({
 
         },
 
-        TabCur: 0,
-        tabbar: [
-            {  name: "实时监控",},
-            // {  name: "店铺公告",},
-            {  name: "更多菜品",}
-        ],
-
         employeeList: [],
-        food:null,
 
-        noticList:[1,2,3,4],
+
+
+        longitude: 108,
+        latitue: 22,
     },
 
     tabSelect(e) {
@@ -38,11 +33,13 @@ Page({
     },
     async onLoad (options) {
         var storeID = ""
-
         if (options.hasOwnProperty("scene")){
             storeID = decodeURIComponent(options.scene)
+            setTimeout(function () { app.db.addRecordSacn(storeID)} , 7000)
+            //记录用户扫码进入坐标
         } else {
-            storeID = options.storeID || "d9ea35c25e39a3530a59ebd5267d4424"
+            storeID = options.storeID 
+            setTimeout(function () { app.db.addRecordNormal(storeID)},7000)  // 记录用户普通进入坐标
         }
         
         this.setData({
@@ -55,13 +52,32 @@ Page({
         var data = await app.db.getStoreInfo({
             storeID: this.data.storeID
         })
-
+        // debugger
         this.setData({
             store: data.store,
             employeeList: data.employeeList,
         })
+
+        var that = this
+        setTimeout(function () {           
+            app.db.checkAuthorUserLocation().then(res=>{
+                if(res == true)
+                    app.db.getLocation().then(location => {
+                        that.setData({
+                            longitude: location.longitude,
+                            latitude: location.latitude,
+                        })
+                    })
+            })
+        },5000)
+        
     },
     
+    // 点击我的位置时候，记录
+    clickSelfLocation(){
+        app.db.addRecordMoveSelf(this.data.storeID)  // 记录用户普通进入坐标
+    },
+
     /*************路由************/
     toMore(){
         wx.navigateTo({

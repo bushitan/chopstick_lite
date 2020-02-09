@@ -5,6 +5,8 @@ App({
     onLaunch: function () {
         if (wx.cloud) {
             wx.cloud.init({
+                env: "relese-chopstick",
+                // env: "test-chopstick",
                 traceUser: true
             })
         }

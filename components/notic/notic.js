@@ -20,6 +20,10 @@ Component({
             type: String,
             value: ''
         },
+        imgList: { // 属性名
+            type: Array,
+            value: ''
+        },
     },
     options: {
         styleIsolation: 'apply-shared'
@@ -36,10 +40,16 @@ Component({
      */
     methods: {
 
-        preview(){
+        // preview(){
+        //     wx.previewImage({
+        //         urls: [this.data.img],
+        //     })
+        // },
+        preview(e){
             wx.previewImage({
-                urls: [this.data.img],
+                urls: this.data.imgList,
+                current:e.currentTarget.dataset.url
             })
-        },
+        }
     }
 })

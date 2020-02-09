@@ -26,3 +26,19 @@ page{
 .notice_show{
     padding:5px 15px;
 }
+
+
+/***底部按钮***/
+.qr-menu{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.9);
+    padding: 10px 0 5px;
+
+}
+.qr-btn{
+    display: flex;
+    justify-content: space-around;
+}

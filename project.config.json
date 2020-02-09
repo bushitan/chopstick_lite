@@ -95,7 +95,14 @@
 					"id": 5,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
-					"query": "storeID=d68532785e3c00780b3c20ec4eb45582",
+					"query": "storeID=1acf1de95e3fea370cd35cbd3b89e6f5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "",
 					"scene": null
 				}
 			]
