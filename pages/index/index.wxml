@@ -109,7 +109,7 @@
     </view> -->
 
     <view class="margin-top"  catchtap="toSelf">
-        <button class="cu-btn bg-white text-grey block bg-blue ">
+        <button class="cu-btn bg-white text-grey block bg-blue " style="min-width:60%">
         免费制作<image src="/images/cover/template_logo.jpg" style="width:23px;height:23px;"></image>
         门店安心卡</button>      
     <view class="  flex align-center" catchtap="toSelf">
